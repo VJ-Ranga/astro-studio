@@ -1,0 +1,38 @@
+name: Linux MVP verification
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+          cache: npm
+      - run: npm ci
+      - run: npm --prefix "tests/fixtures/preview site" ci
+      - run: npm audit
+      - run: npm run typecheck
+      - run: npm run test:unit
+      - run: npm run test:preview
+      - run: npm --prefix "tests/fixtures/preview site" run build
+      - run: xvfb-run -a npm run test:integration
+      - run: npm run package
+      - run: xvfb-run -a npm run test:installed
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astro-studio-linux-x64
+          path: |
+            artifacts/*.vsix
+            artifacts/*.sha256
+          if-no-files-found: error

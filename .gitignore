@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.vscode-test/
+.playwright-mcp/
+coverage/
+artifacts/
+*.vsix
+*.log
+.env
+.env.*
+VAULT.md

@@ -1,0 +1,7 @@
+{
+  "name": "studio-discovery-fixture",
+  "private": true,
+  "packageManager": "npm@10.9.8",
+  "scripts": { "dev": "astro dev" },
+  "dependencies": { "astro": "7.4.2" }
+}

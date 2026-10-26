@@ -1,0 +1,9 @@
+---
+import { getEntry } from 'astro:content';
+const welcome = await getEntry('posts', 'welcome');
+---
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Astro Studio preview fixture</title></head>
+  <body><main><h1>Astro Studio preview is running</h1><h2 id="article-title">{welcome?.data.title}</h2></main></body>
+</html>
