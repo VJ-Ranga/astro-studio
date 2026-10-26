@@ -65,4 +65,10 @@ Open an existing Astro project and run **Astro Studio: Open Studio**. Start prev
 
 Original fixture bytes are restored after editor tests. Temporary installed profiles, copied projects, Git repositories, and browser harness processes are cleaned up. The app never automatically stages, commits, pushes, installs target dependencies, or deploys a site.
 
-The requested source publication is a separate authorized repository operation. The repository includes a Linux GitHub Actions workflow; its run and final remote tracking are checked after push. Human acceptance is not recorded as completed by the agent.
+## Publication receipt
+
+The requested source was committed and pushed to `main` at https://github.com/VJ-Ranga/astro-studio. The initial implementation commit is `1b2e9a36ff53d053991b4128bd0d16eb6a0bcd2f`; local tracking matches the remote branch.
+
+Hosted verification was attempted at https://github.com/VJ-Ranga/astro-studio/actions/runs/40259694996. GitHub rejected runner allocation before any workflow step ran because of an owner-side account restriction. This is not a passing CI run, and no hosted artifact was produced. The owner must resolve the account restriction and rerun the workflow; local package and installed-candidate verification remain the evidence recorded above.
+
+The verified VSIX and checksum are available locally in `artifacts/`. Human acceptance and a successful hosted CI run remain explicit follow-up gates; neither is claimed as complete.

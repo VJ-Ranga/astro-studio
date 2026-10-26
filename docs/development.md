@@ -311,3 +311,5 @@ Final local evidence on 2026-10-26:
 The final installed suite initially exposed an immediate Undo assertion racing extension-host document propagation. The assertion now waits for the observed buffer text with a deadline; it still issues exactly one Undo. The candidate recheck passed. See [MVP acceptance](mvp-acceptance.md) for the checksum and installation walkthrough.
 
 CI is defined in `.github/workflows/ci.yml` using Node.js 22.23.4, clean installs, audit/type/unit/preview/editor/build/package/installed checks, and VSIX/checksum artifact upload. The publication task verifies its run and remote tracking after pushing the reviewed source.
+
+Source publication succeeded on `main` with initial implementation commit `1b2e9a3`. GitHub run `40259694996` was rejected during runner allocation before any step executed due to an owner-side account restriction. Hosted CI is therefore blocked, not verified green. Resolve the account restriction and rerun the workflow. The local VSIX, checksum, 180-test result, and installed trusted/Restricted Mode checks are recorded in `docs/mvp-acceptance.md`.
